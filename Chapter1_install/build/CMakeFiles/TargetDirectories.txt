@@ -1,0 +1,3 @@
+/home/xybxy123/w_work/mujoco_learn/Chapter1_install/build/CMakeFiles/mujoco_demo.dir
+/home/xybxy123/w_work/mujoco_learn/Chapter1_install/build/CMakeFiles/edit_cache.dir
+/home/xybxy123/w_work/mujoco_learn/Chapter1_install/build/CMakeFiles/rebuild_cache.dir

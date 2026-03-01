@@ -1,0 +1,50 @@
+<mujoco>
+    <compiler angle="radian" meshdir="meshes" autolimits="true" />
+    <option timestep="0.002" gravity="0 0 -9.81" integrator="implicitfast" density="1.225" viscosity="1.8e-5" />
+    <asset>
+        <mesh name="tetrahedron" vertex="0 0 0 1 0 0 0 1 0 0 0 1" />
+        <texture type="skybox" file="desert.png"
+            gridsize="3 4" gridlayout=".U..LFRB.D.." />
+        <texture name="plane" type="2d" builtin="checker" rgb1=".1 .1 .1" rgb2=".9 .9 .9"
+            width="512" height="512" mark="cross" markrgb=".8 .8 .8" />
+        <material name="plane" reflectance="0.3" texture="plane" texrepeat="1 1" texuniform="true" />
+    </asset>
+
+    <worldbody>
+        <geom name="floor" pos="0 0 0" size="0 0 .25" type="plane" material="plane"
+            condim="3" />
+        <light directional="true" ambient=".3 .3 .3" pos="30 30 30" dir="0 -.5 -1"
+            diffuse=".5 .5 .5" specular=".5 .5 .5" />
+
+        <body name="base" pos="0 0 0" >
+            <geom type="cylinder" mass="100" size="0.05 0.5" rgba=".2 .2 .2 1" />
+            <body name="pointer" pos="0 0 0.51">
+                <joint type="hinge" name="pivot" pos="0 0 0" axis="0 0 1" damping="0"
+                    frictionloss="0" stiffness="0" />
+                <geom type="capsule" mass="0.01" fromto="0 0 0 0.2 0 0" size="0.01"
+                    rgba="0.8 0.2 0.2 0.5" />
+                    <site name="imu" pos="0.05 0 0.02" size="0.02" rgba="0 0 1 .5"/>
+                    <camera name="this_camera" mode="fixed" pos="0.4 0 0.1" euler="0 1.2 1.57" principalpixel="50 50" focalpixel="1080 1920" sensorsize="4 4" resolution="1280 1080"/>
+            </body>
+        </body>
+
+        <body>
+            
+        </body>
+    </worldbody>
+
+    <actuator>
+        <motor name="motor" joint="pivot"/>
+        <velocity name="vel" joint="pivot" kv="10"/>
+    </actuator>
+
+    <sensor>
+        <framequat name='quat' objtype='site' objname='imu' />
+        <gyro name='ang_vel' site='imu' />
+        <accelerometer name="accel" site="imu" />
+        <jointpos name='pivot_p' joint='pivot' />
+        <jointvel name='pivot_v' joint='pivot' />
+        <framelinvel name="linvel" objtype="site" objname="imu"/>
+    </sensor>
+
+</mujoco>
