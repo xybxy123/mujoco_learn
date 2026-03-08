@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/xml_test.dir/xml_test.cpp.o -o xml_test  -Wl,-rpath,/opt/mujoco/lib /opt/mujoco/lib/libmujoco.so.3.5.1 -lglut -lGL -lGLU -lglfw 

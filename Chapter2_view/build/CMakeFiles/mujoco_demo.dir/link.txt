@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/mujoco_demo.dir/main.cpp.o -o mujoco_demo  -Wl,-rpath,/opt/mujoco/lib /opt/mujoco/lib/libmujoco.so.3.5.1 -lglut -lGL -lGLU -lglfw 

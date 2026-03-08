@@ -1,0 +1,134 @@
+<mujoco>
+    <compiler angle="radian" meshdir="meshes" autolimits="true" />
+    <option timestep="0.002" gravity="0 0 -9.81" integrator="implicitfast" density="1.225" viscosity="1.8e-5" />
+    <asset>
+        <!-- 天空盒纹理 -->
+        <texture type="skybox" file="sea.png" gridsize="3 4" gridlayout=".U..LFRB.D.." />
+
+        <!-- 地面纹理和材质 -->
+        <texture name="floor_tex" type="2d" file="Concrete.png" width="512" height="512" hflip="false" vflip="false" content_type="image/png"/>
+        <material name="floor_mat" reflectance="0.03" texture="floor_tex" texrepeat="20 20" texuniform="false" specular="0.1" shininess="0.2" rgba="1 1 1 1" />    
+
+        <!-- 竖直长方体材质 -->
+        <material name="cube_mat" rgba="0.2 0.6 0.8 1" specular="0.2" shininess="0.3" />
+        <!-- 平放长方体材质 -->
+        <material name="flat_cube_mat" rgba="0.8 0.4 0.2 1" specular="0.2" shininess="0.3" />
+        <!-- link小长方体材质（新增二级link用浅灰色区分）-->
+        <material name="link_mat" rgba="0.5 0.5 0.5 1" specular="0.1" shininess="0.2" />
+        <material name="link2_mat" rgba="0.7 0.7 0.7 1" specular="0.1" shininess="0.2" />
+    </asset>
+
+    <worldbody>
+        <geom name="floor" pos="0 0 0" size="50 50 0.1" type="plane" material="floor_mat" condim="3" />
+
+        <light directional="true" ambient=".3 .3 .3" pos="30 30 30" dir="0 -.5 -1"
+            diffuse=".5 .5 .5" specular=".5 .5 .5" />
+
+        <!-- 竖直长方体 25cm×10cm×50cm -->
+        <body name="vertical_cube" pos="0 0 0.25"> 
+            <geom name="cube_geom" type="box" size="0.125 0.05 0.25" material="cube_mat" mass="1.0" condim="3"/>
+        </body>
+
+        <!-- 平放长方体 30cm×20cm×4cm -->
+        <body name="flat_cube" pos="0 0 0.52"> 
+            <geom name="flat_cube_geom" type="box" size="0.15 0.1 0.02" material="flat_cube_mat" mass="0.2" condim="3"/>
+
+            <!-- 第一级4个link：3cm×3cm×10cm，上表面贴平放长方体下表面 -->
+            <body name="link1" pos="-0.15 -0.1 -0.07">
+                <!-- 为link1添加hinge关节（绕Z轴旋转） -->
+                <joint type="hinge" name="joint_link1" pos="0 0 0" axis="0 0 1" damping="0.1" frictionloss="0.01" stiffness="0" />
+                <geom name="link1_geom" type="box" size="0.015 0.015 0.05" material="link_mat" mass="0.01" condim="3"/>
+                
+                <!-- 二级link1：接在link1底部 -->
+                <body name="link1_2" pos="0 0 -0.1">
+                    <!-- 为link1_2添加hinge关节（绕Z轴旋转） -->
+                    <joint type="hinge" name="joint_link1_2" pos="0 0 0" axis="0 0 1" damping="0.1" frictionloss="0.01" stiffness="0" />
+                    <geom name="link1_2_geom" type="box" size="0.015 0.015 0.05" material="link2_mat" mass="0.01" condim="3"/>
+                </body>
+            </body>
+
+            <body name="link2" pos="0.15 -0.1 -0.07">
+                <!-- 为link2添加hinge关节 -->
+                <joint type="hinge" name="joint_link2" pos="0 0 0" axis="0 0 1" damping="0.1" frictionloss="0.01" stiffness="0" />
+                <geom name="link2_geom" type="box" size="0.015 0.015 0.05" material="link_mat" mass="0.01" condim="3"/>
+                
+                <!-- 二级link2 -->
+                <body name="link2_2" pos="0 0 -0.1">
+                    <!-- 为link2_2添加hinge关节 -->
+                    <joint type="hinge" name="joint_link2_2" pos="0 0 0" axis="0 0 1" damping="0.1" frictionloss="0.01" stiffness="0" />
+                    <geom name="link2_2_geom" type="box" size="0.015 0.015 0.05" material="link2_mat" mass="0.01" condim="3"/>
+                </body>
+            </body>
+
+            <body name="link3" pos="-0.15 0.1 -0.07">
+                <!-- 为link3添加hinge关节 -->
+                <joint type="hinge" name="joint_link3" pos="0 0 0" axis="0 0 1" damping="0.1" frictionloss="0.01" stiffness="0" />
+                <geom name="link3_geom" type="box" size="0.015 0.015 0.05" material="link_mat" mass="0.01" condim="3"/>
+                
+                <!-- 二级link3 -->
+                <body name="link3_2" pos="0 0 -0.1">
+                    <!-- 为link3_2添加hinge关节 -->
+                    <joint type="hinge" name="joint_link3_2" pos="0 0 0" axis="0 0 1" damping="0.1" frictionloss="0.01" stiffness="0" />
+                    <geom name="link3_2_geom" type="box" size="0.015 0.015 0.05" material="link2_mat" mass="0.01" condim="3"/>
+                </body>
+            </body>
+
+            <body name="link4" pos="0.15 0.1 -0.07">
+                <!-- 为link4添加hinge关节 -->
+                <joint type="hinge" name="joint_link4" pos="0 0 0" axis="0 0 1" damping="0.1" frictionloss="0.01" stiffness="0" />
+                <geom name="link4_geom" type="box" size="0.015 0.015 0.05" material="link_mat" mass="0.01" condim="3"/>
+                
+                <!-- 二级link4 -->
+                <body name="link4_2" pos="0 0 -0.1">
+                    <!-- 为link4_2添加hinge关节 -->
+                    <joint type="hinge" name="joint_link4_2" pos="0 0 0" axis="0 0 1" damping="0.1" frictionloss="0.01" stiffness="0" />
+                    <geom name="link4_2_geom" type="box" size="0.015 0.015 0.05" material="link2_mat" mass="0.01" condim="3"/>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+
+    <!-- 可选：为关节添加驱动器（参考示例） -->
+    <actuator>
+        <motor name="motor_link1" joint="joint_link1" />
+        <motor name="motor_link1_2" joint="joint_link1_2" />
+        <motor name="motor_link2" joint="joint_link2" />
+        <motor name="motor_link2_2" joint="joint_link2_2" />
+        <motor name="motor_link3" joint="joint_link3" />
+        <motor name="motor_link3_2" joint="joint_link3_2" />
+        <motor name="motor_link4" joint="joint_link4" />
+        <motor name="motor_link4_2" joint="joint_link4_2" />
+        
+        <velocity name="vel_link1" joint="joint_link1" kv="10"/>
+        <velocity name="vel_link1_2" joint="joint_link1_2" kv="10"/>
+        <velocity name="vel_link2" joint="joint_link2" kv="10"/>
+        <velocity name="vel_link2_2" joint="joint_link2_2" kv="10"/>
+        <velocity name="vel_link3" joint="joint_link3" kv="10"/>
+        <velocity name="vel_link3_2" joint="joint_link3_2" kv="10"/>
+        <velocity name="vel_link4" joint="joint_link4" kv="10"/>
+        <velocity name="vel_link4_2" joint="joint_link4_2" kv="10"/>
+    </actuator>
+
+    <!-- 可选：为关节添加传感器（参考示例） -->
+    <!-- <sensor>
+        <jointpos name='joint_link1_p' joint='joint_link1' />
+        <jointvel name='joint_link1_v' joint='joint_link1' />
+        <jointpos name='joint_link1_2_p' joint='joint_link1_2' />
+        <jointvel name='joint_link1_2_v' joint='joint_link1_2' />
+        
+        <jointpos name='joint_link2_p' joint='joint_link2' />
+        <jointvel name='joint_link2_v' joint='joint_link2' />
+        <jointpos name='joint_link2_2_p' joint='joint_link2_2' />
+        <jointvel name='joint_link2_2_v' joint='joint_link2_2' />
+        
+        <jointpos name='joint_link3_p' joint='joint_link3' />
+        <jointvel name='joint_link3_v' joint='joint_link3' />
+        <jointpos name='joint_link3_2_p' joint='joint_link3_2' />
+        <jointvel name='joint_link3_2_v' joint='joint_link3_2' />
+        
+        <jointpos name='joint_link4_p' joint='joint_link4' />
+        <jointvel name='joint_link4_v' joint='joint_link4' />
+        <jointpos name='joint_link4_2_p' joint='joint_link4_2' />
+        <jointvel name='joint_link4_2_v' joint='joint_link4_2' />
+    </sensor> -->
+</mujoco>

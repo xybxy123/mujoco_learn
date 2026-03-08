@@ -1,0 +1,4 @@
+/home/xybxy123/w_work/mujoco_learn/Chapter2_view/build/CMakeFiles/mujoco_demo.dir
+/home/xybxy123/w_work/mujoco_learn/Chapter2_view/build/CMakeFiles/xml_test.dir
+/home/xybxy123/w_work/mujoco_learn/Chapter2_view/build/CMakeFiles/edit_cache.dir
+/home/xybxy123/w_work/mujoco_learn/Chapter2_view/build/CMakeFiles/rebuild_cache.dir
