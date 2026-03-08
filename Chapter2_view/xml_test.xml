@@ -38,16 +38,16 @@
                 <!-- 为link1添加hinge关节：补充range（-π到π）和limited=true -->
                 <joint type="hinge" name="joint_link1" pos="0 0 0.05" axis="0 1 0" 
                        damping="0.1" frictionloss="0.01" stiffness="0" 
-                       range="-3.1416 3.1416" limited="true" />
-                <geom name="link1_geom" type="box" size="0.015 0.015 0.05" material="link_mat" mass="0.01" condim="3"/>
+                       range="-1.57 1.57" limited="true" />
+                <geom name="link1_geom" type="capsule" size="0.015 0.035" material="link_mat" mass="0.01" condim="3"/>
                 
                 <!-- 二级link1：接在link1底部 -->
                 <body name="link1_2" pos="0 0 -0.1">
                     <!-- 补充关节range和limited -->
                     <joint type="hinge" name="joint_link1_2" pos="0 0 0.05" axis="0 1 0" 
                            damping="0.1" frictionloss="0.01" stiffness="0" 
-                           range="-3.1416 3.1416" limited="true" />
-                    <geom name="link1_2_geom" type="box" size="0.015 0.015 0.05" material="link2_mat" mass="0.01" condim="3"/>
+                           range="-3.1416 0" limited="true" />
+                    <geom name="link1_2_geom" type="capsule" size="0.01 0.04" material="link2_mat" mass="0.01" condim="3"/>
                 </body>
             </body>
 
@@ -55,16 +55,16 @@
                 <!-- 补充关节range和limited -->
                 <joint type="hinge" name="joint_link2" pos="0 0 0.05" axis="0 1 0" 
                        damping="0.1" frictionloss="0.01" stiffness="0" 
-                       range="-3.1416 3.1416" limited="true" />
-                <geom name="link2_geom" type="box" size="0.015 0.015 0.05" material="link_mat" mass="0.01" condim="3"/>
+                       range="-1.57 1.57" limited="true" />
+                <geom name="link2_geom" type="capsule" size="0.015 0.035" material="link_mat" mass="0.01" condim="3"/>
                 
                 <!-- 二级link2 -->
                 <body name="link2_2" pos="0 0 -0.1">
                     <!-- 补充关节range和limited -->
                     <joint type="hinge" name="joint_link2_2" pos="0 0 0.05" axis="0 1 0" 
                            damping="0.1" frictionloss="0.01" stiffness="0" 
-                           range="-3.1416 3.1416" limited="true" />
-                    <geom name="link2_2_geom" type="box" size="0.015 0.015 0.05" material="link2_mat" mass="0.01" condim="3"/>
+                           range="-3.1416 0" limited="true" />
+                    <geom name="link2_2_geom" type="capsule" size="0.01 0.04" material="link2_mat" mass="0.01" condim="3"/>
                 </body>
             </body>
 
@@ -72,16 +72,16 @@
                 <!-- 补充关节range和limited -->
                 <joint type="hinge" name="joint_link3" pos="0 0 0.05" axis="0 1 0" 
                        damping="0.1" frictionloss="0.01" stiffness="0" 
-                       range="-3.1416 3.1416" limited="true" />
-                <geom name="link3_geom" type="box" size="0.015 0.015 0.05" material="link_mat" mass="0.01" condim="3"/>
+                       range="-1.57 1.57" limited="true" />
+                <geom name="link3_geom" type="capsule" size="0.015 0.035" material="link_mat" mass="0.01" condim="3"/>
                 
                 <!-- 二级link3 -->
                 <body name="link3_2" pos="0 0 -0.1">
                     <!-- 补充关节range和limited -->
                     <joint type="hinge" name="joint_link3_2" pos="0 0 0.05" axis="0 1 0" 
                            damping="0.1" frictionloss="0.01" stiffness="0" 
-                           range="-3.1416 3.1416" limited="true" />
-                    <geom name="link3_2_geom" type="box" size="0.015 0.015 0.05" material="link2_mat" mass="0.01" condim="3"/>
+                           range="-3.1416 0" limited="true" />
+                    <geom name="link3_2_geom" type="capsule" size="0.01 0.04" material="link2_mat" mass="0.01" condim="3"/>
                 </body>
             </body>
 
@@ -89,16 +89,16 @@
                 <!-- 补充关节range和limited -->
                 <joint type="hinge" name="joint_link4" pos="0 0 0.05" axis="0 1 0" 
                        damping="0.1" frictionloss="0.01" stiffness="0" 
-                       range="-3.1416 3.1416" limited="true" />
-                <geom name="link4_geom" type="box" size="0.015 0.015 0.05" material="link_mat" mass="0.01" condim="3"/>
+                       range="-1.57 1.57" limited="true" />
+                <geom name="link4_geom" type="capsule" size="0.015 0.035" material="link_mat" mass="0.01" condim="3"/>
                 
                 <!-- 二级link4 -->
                 <body name="link4_2" pos="0 0 -0.1">
                     <!-- 补充关节range和limited -->
                     <joint type="hinge" name="joint_link4_2" pos="0 0 0.05" axis="0 1 0" 
                            damping="0.1" frictionloss="0.01" stiffness="0" 
-                           range="-3.1416 3.1416" limited="true" />
-                    <geom name="link4_2_geom" type="box" size="0.015 0.015 0.05" material="link2_mat" mass="0.01" condim="3"/>
+                           range="-3.1416 0" limited="true" />
+                    <geom name="link4_2_geom" type="capsule" size="0.01 0.04" material="link2_mat" mass="0.01" condim="3"/>
                 </body>
             </body>
         </body>
