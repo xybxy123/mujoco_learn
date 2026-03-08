@@ -7,7 +7,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/home/cc/genesis_ws/mujoco_learn/Chapter1_install/CMakeLists.txt"
+  "/home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/CMakeLists.txt"
   "CMakeFiles/3.28.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.28.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.28.3/CMakeSystem.cmake"
@@ -15,6 +15,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/mujoco/lib/cmake/mujoco/mujocoConfigVersion.cmake"
   "/opt/mujoco/lib/cmake/mujoco/mujocoTargets-release.cmake"
   "/opt/mujoco/lib/cmake/mujoco/mujocoTargets.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Config.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3ConfigVersion.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Targets-none.cmake"
+  "/usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Targets.cmake"
   "/usr/share/cmake-3.28/Modules/CMakeCCompiler.cmake.in"
   "/usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c"
   "/usr/share/cmake-3.28/Modules/CMakeCInformation.cmake"
@@ -134,5 +138,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/mujoco_demo.dir/DependInfo.cmake"
+  "CMakeFiles/mj_ctrl.dir/DependInfo.cmake"
   )

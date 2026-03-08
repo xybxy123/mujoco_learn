@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cc/genesis_ws/mujoco_learn/Chapter1_install
+CMAKE_SOURCE_DIR = /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cc/genesis_ws/mujoco_learn/Chapter1_install/build
+CMAKE_BINARY_DIR = /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cc/genesis_ws/mujoco_learn/Chapter1_install/build/CMakeFiles /home/cc/genesis_ws/mujoco_learn/Chapter1_install/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build/CMakeFiles /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cc/genesis_ws/mujoco_learn/Chapter1_install/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,41 +117,65 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named mujoco_demo
+# Target rules for targets named mj_ctrl
 
 # Build rule for target.
-mujoco_demo: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mujoco_demo
-.PHONY : mujoco_demo
+mj_ctrl: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mj_ctrl
+.PHONY : mj_ctrl
 
 # fast build rule for target.
-mujoco_demo/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mujoco_demo.dir/build.make CMakeFiles/mujoco_demo.dir/build
-.PHONY : mujoco_demo/fast
+mj_ctrl/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/build
+.PHONY : mj_ctrl/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
+src/leg_ik.o: src/leg_ik.c.o
+.PHONY : src/leg_ik.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mujoco_demo.dir/build.make CMakeFiles/mujoco_demo.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/leg_ik.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/leg_ik.c.o
+.PHONY : src/leg_ik.c.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+src/leg_ik.i: src/leg_ik.c.i
+.PHONY : src/leg_ik.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mujoco_demo.dir/build.make CMakeFiles/mujoco_demo.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/leg_ik.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/leg_ik.c.i
+.PHONY : src/leg_ik.c.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+src/leg_ik.s: src/leg_ik.c.s
+.PHONY : src/leg_ik.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mujoco_demo.dir/build.make CMakeFiles/mujoco_demo.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/leg_ik.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/leg_ik.c.s
+.PHONY : src/leg_ik.c.s
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -161,10 +185,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... mujoco_demo"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... mj_ctrl"
+	@echo "... src/leg_ik.o"
+	@echo "... src/leg_ik.i"
+	@echo "... src/leg_ik.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

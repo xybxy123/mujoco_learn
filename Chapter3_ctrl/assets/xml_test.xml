@@ -6,7 +6,7 @@
         <texture type="skybox" file="sea.png" gridsize="3 4" gridlayout=".U..LFRB.D.." />
 
         <!-- 地面纹理和材质 -->
-        <texture name="floor_tex" type="2d" file="Concrete.png" width="512" height="512" hflip="false" vflip="false" content_type="image/png"/>
+        <texture name="floor_tex" type="2d" file="Concrete1.png" width="512" height="512" hflip="false" vflip="false" content_type="image/png"/>
         <material name="floor_mat" reflectance="0.03" texture="floor_tex" texrepeat="20 20" texuniform="false" specular="0.1" shininess="0.2" rgba="1 1 1 1" />    
 
         <!-- 竖直长方体材质 -->
@@ -25,13 +25,12 @@
             diffuse=".5 .5 .5" specular=".5 .5 .5" />
 
         <!-- 竖直长方体 25cm×10cm×50cm -->
-        <!-- <body name="vertical_cube" pos="0 1.0 0.25"> 
+        <body name="vertical_cube" pos="0 0 0.25"> 
             <geom name="cube_geom" type="box" size="0.125 0.05 0.25" material="cube_mat" mass="1.0" condim="3"/>
-        </body> -->
+        </body>
 
-        <!-- 平放长方体 30cm×20cm×4cm (这就是机器狗的主躯干，需要添加 freejoint 让它可以在空间移动、掉落) -->
-        <body name="flat_cube" pos="0 0 0.15"> 
-            <freejoint name="root"/>
+        <!-- 平放长方体 30cm×20cm×4cm -->
+        <body name="flat_cube" pos="0 0 0.52"> 
             <geom name="flat_cube_geom" type="box" size="0.15 0.1 0.02" material="flat_cube_mat" mass="0.2" condim="3"/>
 
             <!-- 第一级4个link：3cm×3cm×10cm，上表面贴平放长方体下表面 -->

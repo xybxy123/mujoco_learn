@@ -8,7 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/cc/genesis_ws/mujoco_learn/Chapter1_install/main.cpp" "CMakeFiles/mujoco_demo.dir/main.cpp.o" "gcc" "CMakeFiles/mujoco_demo.dir/main.cpp.o.d"
+  "/home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/leg_ik.c" "CMakeFiles/mj_ctrl.dir/src/leg_ik.c.o" "gcc" "CMakeFiles/mj_ctrl.dir/src/leg_ik.c.o.d"
+  "/home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/main.cpp" "CMakeFiles/mj_ctrl.dir/src/main.cpp.o" "gcc" "CMakeFiles/mj_ctrl.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
