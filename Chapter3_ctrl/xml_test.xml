@@ -6,7 +6,7 @@
         <texture type="skybox" file="sea.png" gridsize="3 4" gridlayout=".U..LFRB.D.." />
 
         <!-- 地面纹理和材质 -->
-        <texture name="floor_tex" type="2d" file="Concrete.png" width="512" height="512" hflip="false" vflip="false" content_type="image/png"/>
+        <texture name="floor_tex" type="2d" file="Concrete1.png" width="512" height="512" hflip="false" vflip="false" content_type="image/png"/>
         <material name="floor_mat" reflectance="0.03" texture="floor_tex" texrepeat="20 20" texuniform="false" specular="0.1" shininess="0.2" rgba="1 1 1 1" />    
 
         <!-- 竖直长方体材质 -->
