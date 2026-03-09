@@ -1,4 +1,4 @@
-# Install script for directory: /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl
+# Install script for directory: /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

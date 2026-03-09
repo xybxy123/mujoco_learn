@@ -23,63 +23,7 @@ double lastx = 0;
 double lasty = 0;
 
 void mycontroller(const mjModel* m, mjData* d) {
-    // 获取当前仿真时间 (可以用于轨迹生成)
-    double time = d->time;
-
-    // 机械狗步态参数配置（对角小跑 Trot Gait）
-    float base_height = 0.065f;   // 站立的腿长 (留一点弯曲度，腿总长是 0.075m)
-    float step_height = 0.02f;    // 抬腿的高度
-    float step_length = 0.025f;   // 步态前后跨度的一半
-    float freq = 2.5f * M_PI;     // 迈步的频率
-
-    // 计算相位（用于生成半椭圆前摆+半直线后蹬轨）
-    float phase1 = time * freq;
-    float phase2 = time * freq + M_PI; // 第二组差半个周期 (180度)
-
-    // 第一组 (腿1右后, 腿4左前): 
-    // x = -cos(phase). 当 sin(p)>0 时向前抬腿跨越，当 sin(p)<=0 时紧贴地面向后蹬
-    float x1 = -step_length * std::cos(phase1);
-    float y1 = base_height;
-    if (std::sin(phase1) > 0) {
-        y1 -= step_height * std::sin(phase1); // 悬空期：缩短身腿距离，抬脚
-    }
-    float p1[2];
-    leg_ik(x1, y1, p1);
-    float a1_0 = p1[0];
-    float a1_1 = p1[1];
     
-    // 第二组 (腿2右前, 腿3左后):
-    float x2 = -step_length * std::cos(phase2);
-    float y2 = base_height;
-    if (std::sin(phase2) > 0) {
-        y2 -= step_height * std::sin(phase2);
-    }
-    float p2[2];
-    leg_ik(x2, y2, p2);
-    float a2_0 = p2[0];
-    float a2_1 = p2[1];
-
-    float hip1  = (90.0f - a1_0) * M_PI / 180.0f;
-    float knee1 = (180.0f - a1_1) * M_PI / 180.0f;
-    
-    float hip2  = (90.0f - a2_0) * M_PI / 180.0f;
-    float knee2 = (180.0f - a2_1) * M_PI / 180.0f;
-
-    // link1, link1_2
-    d->ctrl[0] = hip1; 
-    d->ctrl[1] = knee1;
-    
-    // link2, link2_2
-    d->ctrl[2] = hip2; 
-    d->ctrl[3] = knee2;
-    
-    // link3, link3_2
-    d->ctrl[4] = hip2; 
-    d->ctrl[5] = knee2;
-    
-    // link4, link4_2
-    d->ctrl[6] = hip1; 
-    d->ctrl[7] = knee1;
 }
 
 

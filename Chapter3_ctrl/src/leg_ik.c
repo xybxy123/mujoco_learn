@@ -38,10 +38,11 @@ void leg_ik(float x, float y, float *angle_out) {
 
   // 4. 使用 atan2f 自动处理全象限判断及 x=0 时的除零问题，直接替代原先庞大的
   // if-else
+  float beta;
   if (x == 0) {
-    float beta = 90;
+    beta = 90;
   } else {
-    float beta = atan2f(y, x);
+    beta = atan2f(y, x);
   }
   float ham = beta + fai;
 
