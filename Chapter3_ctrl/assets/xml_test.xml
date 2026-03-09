@@ -16,6 +16,12 @@
         <!-- link小长方体材质（新增二级link用浅灰色区分）-->
         <material name="link_mat" rgba="0.5 0.5 0.5 1" specular="0.1" shininess="0.2" />
         <material name="link2_mat" rgba="0.7 0.7 0.7 1" specular="0.1" shininess="0.2" />
+
+        <!-- 狗头表情纹理（严格遵循官方 2d 纹理规范） -->
+        <texture name="face_tex" type="2d" file="dog_face.png" width="256" height="256" content_type="image/png" colorspace="sRGB" hflip="false" vflip="false" nchannel="3" />       
+        <!-- 绑定表情纹理到狗头材质 -->
+        <material name="head_mat" texture="face_tex" texrepeat="1 1" texuniform="false" specular="0.2" shininess="0.3" rgba="0.6 0.4 0.2 1" /> 
+
     </asset>
 
     <worldbody>
@@ -31,74 +37,79 @@
 
         <!-- 平放长方体 30cm×20cm×4cm -->
         <body name="flat_cube" pos="0 0 0.52"> 
-            <geom name="flat_cube_geom" type="box" size="0.15 0.1 0.02" material="flat_cube_mat" mass="0.2" condim="3"/>
+            <geom name="flat_cube_geom" type="box" size="0.14 0.075 0.02" material="flat_cube_mat" mass="0.2" condim="3"/>
+
+            <!--狗头-->
+            <body name="dog_head" pos="0.14 0 0.06">
+                <geom name="head_geom" type="box" size="0.04 0.04 0.04" material="head_mat" mass="0.05" condim="3" euler="1.5708 1.5708 0" />
+            </body>
 
             <!-- 第一级4个link：3cm×3cm×10cm，上表面贴平放长方体下表面 -->
-            <body name="link1" pos="-0.15 -0.1 -0.07">
+            <body name="h_back_right" pos="-0.14 -0.075 -0.07">
                 <!-- 为link1添加hinge关节：补充range（-π到π）和limited=true -->
-                <joint type="hinge" name="joint_link1" pos="0 0 0.05" axis="0 1 0" 
+                <joint type="hinge" name="h_back_right" pos="0 0 0.05" axis="0 1 0" 
                        damping="0.1" frictionloss="0.01" stiffness="0" 
                        range="-1.57 1.57" limited="true" />
-                <geom name="link1_geom" type="capsule" size="0.015 0.035" material="link_mat" mass="0.01" condim="3"/>
+                <geom name="link1_geom" type="capsule" size="0.015 0.09" material="link_mat" mass="0.01" condim="3"/>
                 
                 <!-- 二级link1：接在link1底部 -->
-                <body name="link1_2" pos="0 0 -0.1">
+                <body name="l_back_right" pos="0 0 -0.1">
                     <!-- 补充关节range和limited -->
-                    <joint type="hinge" name="joint_link1_2" pos="0 0 0.05" axis="0 1 0" 
+                    <joint type="hinge" name="l_back_right" pos="0 0 0.05" axis="0 1 0" 
                            damping="0.1" frictionloss="0.01" stiffness="0" 
-                           range="-3.1416 0" limited="true" />
-                    <geom name="link1_2_geom" type="capsule" size="0.01 0.04" material="link2_mat" mass="0.01" condim="3"/>
+                           range="0 3.1416" limited="true" />
+                    <geom name="link1_2_geom" type="capsule" size="0.01 0.1063" material="link2_mat" mass="0.01" condim="3"/>
                 </body>
             </body>
 
-            <body name="link2" pos="0.15 -0.1 -0.07">
+            <body name="h_front_right" pos="0.14 -0.075 -0.07">
                 <!-- 补充关节range和limited -->
-                <joint type="hinge" name="joint_link2" pos="0 0 0.05" axis="0 1 0" 
+                <joint type="hinge" name="h_front_right" pos="0 0 0.05" axis="0 1 0" 
                        damping="0.1" frictionloss="0.01" stiffness="0" 
                        range="-1.57 1.57" limited="true" />
-                <geom name="link2_geom" type="capsule" size="0.015 0.035" material="link_mat" mass="0.01" condim="3"/>
+                <geom name="link2_geom" type="capsule" size="0.015 0.09" material="link_mat" mass="0.01" condim="3"/>
                 
                 <!-- 二级link2 -->
-                <body name="link2_2" pos="0 0 -0.1">
+                <body name="l_front_right" pos="0 0 -0.1">
                     <!-- 补充关节range和limited -->
-                    <joint type="hinge" name="joint_link2_2" pos="0 0 0.05" axis="0 1 0" 
+                    <joint type="hinge" name="l_front_right" pos="0 0 0.05" axis="0 1 0" 
                            damping="0.1" frictionloss="0.01" stiffness="0" 
-                           range="-3.1416 0" limited="true" />
-                    <geom name="link2_2_geom" type="capsule" size="0.01 0.04" material="link2_mat" mass="0.01" condim="3"/>
+                           range="0 3.1416" limited="true" />
+                    <geom name="link2_2_geom" type="capsule" size="0.01 0.1063" material="link2_mat" mass="0.01" condim="3"/>
                 </body>
             </body>
 
-            <body name="link3" pos="-0.15 0.1 -0.07">
+            <body name="h_back_left" pos="-0.14 0.075 -0.07">
                 <!-- 补充关节range和limited -->
-                <joint type="hinge" name="joint_link3" pos="0 0 0.05" axis="0 1 0" 
+                <joint type="hinge" name="h_back_left" pos="0 0 0.05" axis="0 1 0" 
                        damping="0.1" frictionloss="0.01" stiffness="0" 
                        range="-1.57 1.57" limited="true" />
-                <geom name="link3_geom" type="capsule" size="0.015 0.035" material="link_mat" mass="0.01" condim="3"/>
+                <geom name="link3_geom" type="capsule" size="0.015 0.09" material="link_mat" mass="0.01" condim="3"/>
                 
                 <!-- 二级link3 -->
-                <body name="link3_2" pos="0 0 -0.1">
+                <body name="l_back_left" pos="0 0 -0.1">
                     <!-- 补充关节range和limited -->
-                    <joint type="hinge" name="joint_link3_2" pos="0 0 0.05" axis="0 1 0" 
+                    <joint type="hinge" name="l_back_left" pos="0 0 0.05" axis="0 1 0" 
                            damping="0.1" frictionloss="0.01" stiffness="0" 
-                           range="-3.1416 0" limited="true" />
-                    <geom name="link3_2_geom" type="capsule" size="0.01 0.04" material="link2_mat" mass="0.01" condim="3"/>
+                           range="0 3.1416" limited="true" />
+                    <geom name="link3_2_geom" type="capsule" size="0.01 0.1063" material="link2_mat" mass="0.01" condim="3"/>
                 </body>
             </body>
 
-            <body name="link4" pos="0.15 0.1 -0.07">
+            <body name="h_front_left" pos="0.14 0.075 -0.07">
                 <!-- 补充关节range和limited -->
-                <joint type="hinge" name="joint_link4" pos="0 0 0.05" axis="0 1 0" 
+                <joint type="hinge" name="h_front_left" pos="0 0 0.05" axis="0 1 0" 
                        damping="0.1" frictionloss="0.01" stiffness="0" 
                        range="-1.57 1.57" limited="true" />
-                <geom name="link4_geom" type="capsule" size="0.015 0.035" material="link_mat" mass="0.01" condim="3"/>
+                <geom name="link4_geom" type="capsule" size="0.015 0.09" material="link_mat" mass="0.01" condim="3"/>
                 
                 <!-- 二级link4 -->
-                <body name="link4_2" pos="0 0 -0.1">
+                <body name="l_front_left" pos="0 0 -0.1">
                     <!-- 补充关节range和limited -->
-                    <joint type="hinge" name="joint_link4_2" pos="0 0 0.05" axis="0 1 0" 
+                    <joint type="hinge" name="l_front_left" pos="0 0 0.05" axis="0 1 0" 
                            damping="0.1" frictionloss="0.01" stiffness="0" 
-                           range="-3.1416 0" limited="true" />
-                    <geom name="link4_2_geom" type="capsule" size="0.01 0.04" material="link2_mat" mass="0.01" condim="3"/>
+                           range="0 3.1416" limited="true" />
+                    <geom name="link4_2_geom" type="capsule" size="0.01 0.1063" material="link2_mat" mass="0.01" condim="3"/>
                 </body>
             </body>
         </body>
@@ -106,13 +117,13 @@
 
     <!-- 角度（位置）控制执行器：inheritrange now works -->
     <actuator>
-        <position name="pos_link1" joint="joint_link1" kp="100" dampratio="1" inheritrange="1.0"/>
-        <position name="pos_link1_2" joint="joint_link1_2" kp="100" dampratio="1" inheritrange="1.0"/>
-        <position name="pos_link2" joint="joint_link2" kp="100" dampratio="1" inheritrange="1.0"/>
-        <position name="pos_link2_2" joint="joint_link2_2" kp="100" dampratio="1" inheritrange="1.0"/>
-        <position name="pos_link3" joint="joint_link3" kp="100" dampratio="1" inheritrange="1.0"/>
-        <position name="pos_link3_2" joint="joint_link3_2" kp="100" dampratio="1" inheritrange="1.0"/>
-        <position name="pos_link4" joint="joint_link4" kp="100" dampratio="1" inheritrange="1.0"/>
-        <position name="pos_link4_2" joint="joint_link4_2" kp="100" dampratio="1" inheritrange="1.0"/>
+        <position name="h_back_right_pos" joint="h_back_right" kp="100" dampratio="1" inheritrange="1.0"/>
+        <position name="l_back_right_pos" joint="l_back_right" kp="100" dampratio="1" inheritrange="1.0"/>
+        <position name="h_front_right_pos" joint="h_front_right" kp="100" dampratio="1" inheritrange="1.0"/>
+        <position name="l_front_right_pos" joint="l_front_right" kp="100" dampratio="1" inheritrange="1.0"/>
+        <position name="h_back_left_pos" joint="h_back_left" kp="100" dampratio="1" inheritrange="1.0"/>
+        <position name="l_back_left_pos" joint="l_back_left" kp="100" dampratio="1" inheritrange="1.0"/>
+        <position name="h_front_left_pos" joint="h_front_left" kp="100" dampratio="1" inheritrange="1.0"/>
+        <position name="l_front_left_pos" joint="l_front_left" kp="100" dampratio="1" inheritrange="1.0"/>
     </actuator>
 </mujoco>
