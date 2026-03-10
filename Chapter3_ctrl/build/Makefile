@@ -129,6 +129,19 @@ mj_ctrl/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/build
 .PHONY : mj_ctrl/fast
 
+#=============================================================================
+# Target rules for targets named mj_test
+
+# Build rule for target.
+mj_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mj_test
+.PHONY : mj_test
+
+# fast build rule for target.
+mj_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_test.dir/build.make CMakeFiles/mj_test.dir/build
+.PHONY : mj_test/fast
+
 src/gait_controller.o: src/gait_controller.cpp.o
 .PHONY : src/gait_controller.o
 
@@ -159,6 +172,7 @@ src/leg_ik.o: src/leg_ik.cpp.o
 # target to build an object file
 src/leg_ik.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_test.dir/build.make CMakeFiles/mj_test.dir/src/leg_ik.cpp.o
 .PHONY : src/leg_ik.cpp.o
 
 src/leg_ik.i: src/leg_ik.cpp.i
@@ -167,6 +181,7 @@ src/leg_ik.i: src/leg_ik.cpp.i
 # target to preprocess a source file
 src/leg_ik.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_test.dir/build.make CMakeFiles/mj_test.dir/src/leg_ik.cpp.i
 .PHONY : src/leg_ik.cpp.i
 
 src/leg_ik.s: src/leg_ik.cpp.s
@@ -175,6 +190,7 @@ src/leg_ik.s: src/leg_ik.cpp.s
 # target to generate assembly for a file
 src/leg_ik.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_test.dir/build.make CMakeFiles/mj_test.dir/src/leg_ik.cpp.s
 .PHONY : src/leg_ik.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -201,6 +217,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/test.o: src/test.cpp.o
+.PHONY : src/test.o
+
+# target to build an object file
+src/test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_test.dir/build.make CMakeFiles/mj_test.dir/src/test.cpp.o
+.PHONY : src/test.cpp.o
+
+src/test.i: src/test.cpp.i
+.PHONY : src/test.i
+
+# target to preprocess a source file
+src/test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_test.dir/build.make CMakeFiles/mj_test.dir/src/test.cpp.i
+.PHONY : src/test.cpp.i
+
+src/test.s: src/test.cpp.s
+.PHONY : src/test.s
+
+# target to generate assembly for a file
+src/test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_test.dir/build.make CMakeFiles/mj_test.dir/src/test.cpp.s
+.PHONY : src/test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -210,6 +250,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... mj_ctrl"
+	@echo "... mj_test"
 	@echo "... src/gait_controller.o"
 	@echo "... src/gait_controller.i"
 	@echo "... src/gait_controller.s"
@@ -219,6 +260,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/test.o"
+	@echo "... src/test.i"
+	@echo "... src/test.s"
 .PHONY : help
 
 

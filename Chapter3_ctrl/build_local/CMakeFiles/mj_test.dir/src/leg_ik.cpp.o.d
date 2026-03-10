@@ -1,4 +1,4 @@
-CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.o: \
+CMakeFiles/mj_test.dir/src/leg_ik.cpp.o: \
  /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/leg_ik.cpp \
  /usr/include/stdc-predef.h \
  /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/leg_ik.h \

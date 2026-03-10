@@ -57,4 +57,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/mj_ctrl.dir/DependInfo.cmake"
+  "CMakeFiles/mj_test.dir/DependInfo.cmake"
   )

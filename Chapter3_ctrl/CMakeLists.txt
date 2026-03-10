@@ -9,12 +9,24 @@ find_package(mujoco REQUIRED)
 # 寻找 GLFW，用于图形界面渲染
 find_package(glfw3 REQUIRED)
 
-# 添加你的源代码源文件
-file(GLOB SOURCES "src/*.cpp" "src/*.c")
-add_executable(mj_ctrl ${SOURCES})
+# 共享模块（两个可执行文件都需要）
+set(SHARED_SOURCES
+    src/gait_controller.cpp
+    src/leg_ik.cpp
+)
 
-# 添加头文件路径
+# mj_ctrl：原始固定步态演示（main.cpp）
+add_executable(mj_ctrl
+    src/main.cpp
+    ${SHARED_SOURCES}
+)
 target_include_directories(mj_ctrl PRIVATE src)
-
-# 链接 MuJoCo 和 GLFW
 target_link_libraries(mj_ctrl PRIVATE mujoco::mujoco glfw)
+
+# mj_test：键盘控制前进/后退演示（test.cpp）
+add_executable(mj_test
+    src/test.cpp
+    src/leg_ik.cpp
+)
+target_include_directories(mj_test PRIVATE src)
+target_link_libraries(mj_test PRIVATE mujoco::mujoco glfw)

@@ -6,5 +6,5 @@ CXX_DEFINES = -DmjUSEPLATFORMSIMD
 
 CXX_INCLUDES = -I/home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src -isystem /opt/mujoco/include
 
-CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17
+CXX_FLAGS = -std=gnu++17
 
