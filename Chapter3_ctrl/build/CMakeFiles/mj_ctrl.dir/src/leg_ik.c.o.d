@@ -1,7 +1,7 @@
 CMakeFiles/mj_ctrl.dir/src/leg_ik.c.o: \
- /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/leg_ik.c \
+ /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/src/leg_ik.c \
  /usr/include/stdc-predef.h \
- /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/leg_ik.h \
+ /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/src/leg_ik.h \
  /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -23,13 +23,13 @@ CMakeFiles/mj_ctrl.dir/src/leg_ik.c.o: \
  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h /usr/include/stdio.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \

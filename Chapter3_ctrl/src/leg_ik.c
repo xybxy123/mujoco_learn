@@ -51,6 +51,7 @@ void leg_ik(float x, float y, float *angle_out) {
   angle_out[1] = shank * 180.0f / (float)PI;
 
   angle_out[0] = -angle_out[0] + 90;
+  angle_out[1] = -angle_out[1];
 
   return;
 }
