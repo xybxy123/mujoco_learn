@@ -129,6 +129,54 @@ mj_ctrl/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/build
 .PHONY : mj_ctrl/fast
 
+src/gait_controller.o: src/gait_controller.cpp.o
+.PHONY : src/gait_controller.o
+
+# target to build an object file
+src/gait_controller.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.o
+.PHONY : src/gait_controller.cpp.o
+
+src/gait_controller.i: src/gait_controller.cpp.i
+.PHONY : src/gait_controller.i
+
+# target to preprocess a source file
+src/gait_controller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.i
+.PHONY : src/gait_controller.cpp.i
+
+src/gait_controller.s: src/gait_controller.cpp.s
+.PHONY : src/gait_controller.s
+
+# target to generate assembly for a file
+src/gait_controller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.s
+.PHONY : src/gait_controller.cpp.s
+
+src/leg_ik.o: src/leg_ik.cpp.o
+.PHONY : src/leg_ik.o
+
+# target to build an object file
+src/leg_ik.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.o
+.PHONY : src/leg_ik.cpp.o
+
+src/leg_ik.i: src/leg_ik.cpp.i
+.PHONY : src/leg_ik.i
+
+# target to preprocess a source file
+src/leg_ik.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.i
+.PHONY : src/leg_ik.cpp.i
+
+src/leg_ik.s: src/leg_ik.cpp.s
+.PHONY : src/leg_ik.s
+
+# target to generate assembly for a file
+src/leg_ik.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.s
+.PHONY : src/leg_ik.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -162,6 +210,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... mj_ctrl"
+	@echo "... src/gait_controller.o"
+	@echo "... src/gait_controller.i"
+	@echo "... src/gait_controller.s"
+	@echo "... src/leg_ik.o"
+	@echo "... src/leg_ik.i"
+	@echo "... src/leg_ik.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

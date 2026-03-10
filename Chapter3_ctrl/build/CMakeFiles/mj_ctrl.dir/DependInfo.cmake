@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/gait_controller.cpp" "CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.o" "gcc" "CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.o.d"
+  "/home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/leg_ik.cpp" "CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.o" "gcc" "CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.o.d"
   "/home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/main.cpp" "CMakeFiles/mj_ctrl.dir/src/main.cpp.o" "gcc" "CMakeFiles/mj_ctrl.dir/src/main.cpp.o.d"
   )
 

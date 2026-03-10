@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.o"
+  "CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.o.d"
+  "CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.o"
+  "CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.o.d"
   "CMakeFiles/mj_ctrl.dir/src/main.cpp.o"
   "CMakeFiles/mj_ctrl.dir/src/main.cpp.o.d"
   "mj_ctrl"

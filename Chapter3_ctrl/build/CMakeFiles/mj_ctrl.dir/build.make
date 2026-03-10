@@ -69,10 +69,38 @@ include CMakeFiles/mj_ctrl.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/mj_ctrl.dir/flags.make
 
+CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.o: CMakeFiles/mj_ctrl.dir/flags.make
+CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.o: /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/gait_controller.cpp
+CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.o: CMakeFiles/mj_ctrl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.o -MF CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.o.d -o CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.o -c /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/gait_controller.cpp
+
+CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/gait_controller.cpp > CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.i
+
+CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/gait_controller.cpp -o CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.s
+
+CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.o: CMakeFiles/mj_ctrl.dir/flags.make
+CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.o: /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/leg_ik.cpp
+CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.o: CMakeFiles/mj_ctrl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.o -MF CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.o.d -o CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.o -c /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/leg_ik.cpp
+
+CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/leg_ik.cpp > CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.i
+
+CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/leg_ik.cpp -o CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.s
+
 CMakeFiles/mj_ctrl.dir/src/main.cpp.o: CMakeFiles/mj_ctrl.dir/flags.make
 CMakeFiles/mj_ctrl.dir/src/main.cpp.o: /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/main.cpp
 CMakeFiles/mj_ctrl.dir/src/main.cpp.o: CMakeFiles/mj_ctrl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mj_ctrl.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mj_ctrl.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mj_ctrl.dir/src/main.cpp.o -MF CMakeFiles/mj_ctrl.dir/src/main.cpp.o.d -o CMakeFiles/mj_ctrl.dir/src/main.cpp.o -c /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/main.cpp
 
 CMakeFiles/mj_ctrl.dir/src/main.cpp.i: cmake_force
@@ -85,17 +113,21 @@ CMakeFiles/mj_ctrl.dir/src/main.cpp.s: cmake_force
 
 # Object files for target mj_ctrl
 mj_ctrl_OBJECTS = \
+"CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.o" \
+"CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.o" \
 "CMakeFiles/mj_ctrl.dir/src/main.cpp.o"
 
 # External object files for target mj_ctrl
 mj_ctrl_EXTERNAL_OBJECTS =
 
+mj_ctrl: CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.o
+mj_ctrl: CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.o
 mj_ctrl: CMakeFiles/mj_ctrl.dir/src/main.cpp.o
 mj_ctrl: CMakeFiles/mj_ctrl.dir/build.make
 mj_ctrl: /opt/mujoco/lib/libmujoco.so.3.4.0
 mj_ctrl: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 mj_ctrl: CMakeFiles/mj_ctrl.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable mj_ctrl"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable mj_ctrl"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mj_ctrl.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
