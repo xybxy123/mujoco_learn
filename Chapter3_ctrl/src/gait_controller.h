@@ -19,7 +19,6 @@ struct ControllerState {
     bool valid = false;
     std::array<int, kLegCount> hip_actuator_ids{};
     std::array<int, kLegCount> knee_actuator_ids{};
-    std::array<JointAngles, kLegCount> filtered_commands{};
 };
 
 class GaitController {
@@ -29,9 +28,6 @@ public:
     void Initialize(const mjModel* model);
     void SetInitialPose(const mjModel* model, mjData* data);
     void Update(const mjModel* model, mjData* data);
-    
-    // reset pose internally without resetting data
-    void Reset();
 
 private:
     ControllerState state_;
