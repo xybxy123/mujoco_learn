@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl
+CMAKE_SOURCE_DIR = /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/build
+CMAKE_BINARY_DIR = /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/mj_ctrl.dir/depend.make
@@ -69,49 +69,33 @@ include CMakeFiles/mj_ctrl.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/mj_ctrl.dir/flags.make
 
-CMakeFiles/mj_ctrl.dir/src/leg_ik.c.o: CMakeFiles/mj_ctrl.dir/flags.make
-CMakeFiles/mj_ctrl.dir/src/leg_ik.c.o: /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/src/leg_ik.c
-CMakeFiles/mj_ctrl.dir/src/leg_ik.c.o: CMakeFiles/mj_ctrl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/mj_ctrl.dir/src/leg_ik.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/mj_ctrl.dir/src/leg_ik.c.o -MF CMakeFiles/mj_ctrl.dir/src/leg_ik.c.o.d -o CMakeFiles/mj_ctrl.dir/src/leg_ik.c.o -c /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/src/leg_ik.c
-
-CMakeFiles/mj_ctrl.dir/src/leg_ik.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/mj_ctrl.dir/src/leg_ik.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/src/leg_ik.c > CMakeFiles/mj_ctrl.dir/src/leg_ik.c.i
-
-CMakeFiles/mj_ctrl.dir/src/leg_ik.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/mj_ctrl.dir/src/leg_ik.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/src/leg_ik.c -o CMakeFiles/mj_ctrl.dir/src/leg_ik.c.s
-
 CMakeFiles/mj_ctrl.dir/src/main.cpp.o: CMakeFiles/mj_ctrl.dir/flags.make
-CMakeFiles/mj_ctrl.dir/src/main.cpp.o: /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/src/main.cpp
+CMakeFiles/mj_ctrl.dir/src/main.cpp.o: /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/main.cpp
 CMakeFiles/mj_ctrl.dir/src/main.cpp.o: CMakeFiles/mj_ctrl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mj_ctrl.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mj_ctrl.dir/src/main.cpp.o -MF CMakeFiles/mj_ctrl.dir/src/main.cpp.o.d -o CMakeFiles/mj_ctrl.dir/src/main.cpp.o -c /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mj_ctrl.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mj_ctrl.dir/src/main.cpp.o -MF CMakeFiles/mj_ctrl.dir/src/main.cpp.o.d -o CMakeFiles/mj_ctrl.dir/src/main.cpp.o -c /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/main.cpp
 
 CMakeFiles/mj_ctrl.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/mj_ctrl.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/src/main.cpp > CMakeFiles/mj_ctrl.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/main.cpp > CMakeFiles/mj_ctrl.dir/src/main.cpp.i
 
 CMakeFiles/mj_ctrl.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mj_ctrl.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/src/main.cpp -o CMakeFiles/mj_ctrl.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/main.cpp -o CMakeFiles/mj_ctrl.dir/src/main.cpp.s
 
 # Object files for target mj_ctrl
 mj_ctrl_OBJECTS = \
-"CMakeFiles/mj_ctrl.dir/src/leg_ik.c.o" \
 "CMakeFiles/mj_ctrl.dir/src/main.cpp.o"
 
 # External object files for target mj_ctrl
 mj_ctrl_EXTERNAL_OBJECTS =
 
-mj_ctrl: CMakeFiles/mj_ctrl.dir/src/leg_ik.c.o
 mj_ctrl: CMakeFiles/mj_ctrl.dir/src/main.cpp.o
 mj_ctrl: CMakeFiles/mj_ctrl.dir/build.make
-mj_ctrl: /opt/mujoco/lib/libmujoco.so.3.5.1
+mj_ctrl: /opt/mujoco/lib/libmujoco.so.3.4.0
 mj_ctrl: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 mj_ctrl: CMakeFiles/mj_ctrl.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable mj_ctrl"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable mj_ctrl"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mj_ctrl.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -123,6 +107,6 @@ CMakeFiles/mj_ctrl.dir/clean:
 .PHONY : CMakeFiles/mj_ctrl.dir/clean
 
 CMakeFiles/mj_ctrl.dir/depend:
-	cd /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/build /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/build /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/build/CMakeFiles/mj_ctrl.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build/CMakeFiles/mj_ctrl.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/mj_ctrl.dir/depend
 

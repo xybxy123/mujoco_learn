@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl
+CMAKE_SOURCE_DIR = /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/build
+CMAKE_BINARY_DIR = /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/build/CMakeFiles /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build/CMakeFiles /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,30 +129,6 @@ mj_ctrl/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/build
 .PHONY : mj_ctrl/fast
 
-src/leg_ik.o: src/leg_ik.c.o
-.PHONY : src/leg_ik.o
-
-# target to build an object file
-src/leg_ik.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/leg_ik.c.o
-.PHONY : src/leg_ik.c.o
-
-src/leg_ik.i: src/leg_ik.c.i
-.PHONY : src/leg_ik.i
-
-# target to preprocess a source file
-src/leg_ik.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/leg_ik.c.i
-.PHONY : src/leg_ik.c.i
-
-src/leg_ik.s: src/leg_ik.c.s
-.PHONY : src/leg_ik.s
-
-# target to generate assembly for a file
-src/leg_ik.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mj_ctrl.dir/build.make CMakeFiles/mj_ctrl.dir/src/leg_ik.c.s
-.PHONY : src/leg_ik.c.s
-
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -186,9 +162,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... mj_ctrl"
-	@echo "... src/leg_ik.o"
-	@echo "... src/leg_ik.i"
-	@echo "... src/leg_ik.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

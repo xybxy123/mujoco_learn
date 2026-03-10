@@ -3,8 +3,6 @@
 
 CMakeFiles/mj_ctrl.dir/src/main.cpp.o
  /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/main.cpp
- /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/gait_controller.h
- /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src/leg_ik.h
  /opt/mujoco/include/mujoco/mjdata.h
  /opt/mujoco/include/mujoco/mjexport.h
  /opt/mujoco/include/mujoco/mjmacro.h

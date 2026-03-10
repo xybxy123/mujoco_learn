@@ -30,9 +30,9 @@
         <light directional="true" ambient=".3 .3 .3" pos="30 30 30" dir="0 -.5 -1"
             diffuse=".5 .5 .5" specular=".5 .5 .5" />
 
-        <body name="vertical_cube" pos="0 0 0.25">
+        <!-- <body name="vertical_cube" pos="0 0 0.25">
             <geom name="cube_geom" type="box" size="0.125 0.05 0.25" material="cube_mat" mass="1.2" condim="3"/>
-        </body>
+        </body> -->
 
         <!-- 平放长方体 30cm×20cm×4cm -->
         <body name="flat_cube" pos="0 0 0.52"> 
@@ -104,13 +104,13 @@
 
     <!-- 角度（位置）控制执行器：inheritrange now works -->
     <actuator>
-        <position name="h_back_right_pos" joint="h_back_right" kp="5" dampratio="1" inheritrange="1.0"/>
-        <position name="l_back_right_pos" joint="l_back_right" kp="5" dampratio="1" inheritrange="1.0"/>
-        <position name="h_front_right_pos" joint="h_front_right" kp="5" dampratio="1" inheritrange="1.0"/>
-        <position name="l_front_right_pos" joint="l_front_right" kp="5" dampratio="1" inheritrange="1.0"/>
-        <position name="h_back_left_pos" joint="h_back_left" kp="5" dampratio="1" inheritrange="1.0"/>
-        <position name="l_back_left_pos" joint="l_back_left" kp="5" dampratio="1" inheritrange="1.0"/>
-        <position name="h_front_left_pos" joint="h_front_left" kp="5" dampratio="1" inheritrange="1.0"/>
-        <position name="l_front_left_pos" joint="l_front_left" kp="5" dampratio="1" inheritrange="1.0"/>
+        <position name="h_back_right_pos" joint="h_back_right" kp="30" dampratio="1" inheritrange="1.0"/>
+        <position name="l_back_right_pos" joint="l_back_right" kp="30" dampratio="1" inheritrange="1.0"/>
+        <position name="h_front_right_pos" joint="h_front_right" kp="30" dampratio="1" inheritrange="1.0"/>
+        <position name="l_front_right_pos" joint="l_front_right" kp="30" dampratio="1" inheritrange="1.0"/>
+        <position name="h_back_left_pos" joint="h_back_left" kp="30" dampratio="1" inheritrange="1.0"/>
+        <position name="l_back_left_pos" joint="l_back_left" kp="30" dampratio="1" inheritrange="1.0"/>
+        <position name="h_front_left_pos" joint="h_front_left" kp="30" dampratio="1" inheritrange="1.0"/>
+        <position name="l_front_left_pos" joint="l_front_left" kp="30" dampratio="1" inheritrange="1.0"/>
     </actuator>
 </mujoco>
