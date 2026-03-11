@@ -8,18 +8,17 @@ namespace quad {
 
 namespace {
 
-constexpr mjtNum kUpperLegLength = 0.105;
-constexpr mjtNum kLowerLegLength = 0.1163;
-constexpr mjtNum kNominalHeight = 0.205;
-constexpr mjtNum kStepHeight = 0.028;
-constexpr mjtNum kStanceSink = 0.004;
-constexpr mjtNum kStepLength = 0.075;
-constexpr mjtNum kForwardStepSign = -1.0;
-constexpr mjtNum kCyclePeriod = 0.60;
-constexpr mjtNum kDutyFactor = 0.58;
-constexpr mjtNum kStandingBodyHeight = 0.5;
-constexpr mjtNum kFrontBias = 0.03;
-constexpr mjtNum kRearBias = -0.03;
+constexpr mjtNum kUpperLegLength    = 0.105;
+constexpr mjtNum kLowerLegLength    = 0.1163;
+constexpr mjtNum kNominalHeight     = 0.205;   // 足端到髋关节默认高度
+constexpr mjtNum kStepHeight        = 0.028;   // 摆动相最大抬脚高度
+constexpr mjtNum kStanceSink        = 0.004;   // 支撑相轻微下沉量
+constexpr mjtNum kStepLength        = 0.075;   // 前后步幅
+constexpr mjtNum kCyclePeriod       = 0.60;    // 步态周期（秒）
+constexpr mjtNum kDutyFactor        = 0.58;    // 支撑相占比
+constexpr mjtNum kStandingBodyHeight= 0.5;     // 机身初始离地高度
+constexpr mjtNum kFrontBias         = 0.03;    // 前腿 x 默认偏置
+constexpr mjtNum kRearBias          = -0.03;   // 后腿 x 默认偏置
 
 struct LegConfig {
     const char* hip_actuator;
@@ -62,23 +61,29 @@ mjtNum actuatorLimitedCommand(const mjModel* model, int actuator_id, mjtNum comm
     return command;
 }
 
+// 静止站立目标：足端保持在默认偏置位置
+FootTarget computeStandingTarget(const LegConfig& leg) {
+    return {leg.x_bias, kNominalHeight};
+}
+
+// Trot 步态足端目标（前进方向，x 偏置由外部乘以方向系数翻转）
 FootTarget computeTrotTarget(const LegConfig& leg, mjtNum time) {
-    const mjtNum cycle_phase = std::fmod(time / kCyclePeriod + leg.phase_offset, 1.0);
-    const mjtNum phase = cycle_phase < 0.0 ? cycle_phase + 1.0 : cycle_phase;
-    const mjtNum half_step = 0.5 * kStepLength;
-    const mjtNum step_sign = kForwardStepSign;
+    mjtNum phase = std::fmod(time / kCyclePeriod + leg.phase_offset, 1.0);
+    if (phase < 0.0) phase += 1.0;
+    const mjtNum half = 0.5 * kStepLength;
 
     FootTarget target;
     if (phase < kDutyFactor) {
-        const mjtNum stance_phase = phase / kDutyFactor;
-        target.x = leg.x_bias + step_sign * (half_step - kStepLength * stance_phase);
-        target.z = kNominalHeight + kStanceSink * std::sin(mjPI * stance_phase);
+        // 支撑相：足端向后划过，推动机身前进
+        const mjtNum sp = phase / kDutyFactor;
+        target.x = leg.x_bias + (half - kStepLength * sp);
+        target.z = kNominalHeight + kStanceSink * std::sin(mjPI * sp);
     } else {
-        const mjtNum swing_phase = (phase - kDutyFactor) / (1.0 - kDutyFactor);
-        target.x = leg.x_bias + step_sign * (-half_step + kStepLength * swing_phase);
-        target.z = kNominalHeight - kStepHeight * std::sin(mjPI * swing_phase);
+        // 摆动相：抬腿向前迈步
+        const mjtNum sw = (phase - kDutyFactor) / (1.0 - kDutyFactor);
+        target.x = leg.x_bias + (-half + kStepLength * sw);
+        target.z = kNominalHeight - kStepHeight * std::sin(mjPI * sw);
     }
-
     return target;
 }
 
@@ -107,38 +112,79 @@ void GaitController::Initialize(const mjModel* model) {
 }
 
 void GaitController::SetInitialPose(const mjModel* model, mjData* data) {
-    //设置初始姿态，站立在地面上
-    data->qpos[0] = 0.0;
-    data->qpos[1] = 0.0;
-    data->qpos[2] = kStandingBodyHeight;
-    data->qpos[3] = 1.0;
-    data->qpos[4] = 0.0;
-    data->qpos[5] = 0.0;
-    data->qpos[6] = 0.0;
+    state_.motion_direction = 0;
+    state_.gait_time        = 0.0;
+    state_.last_sim_time    = data->time;
+
+    // 机身初始位置
+    if (model->nq >= 7) {
+        data->qpos[0] = 0.0; data->qpos[1] = 0.0; data->qpos[2] = kStandingBodyHeight;
+        data->qpos[3] = 1.0; data->qpos[4] = 0.0; data->qpos[5] = 0.0; data->qpos[6] = 0.0;
+    }
+
+    // 四腿直接写入站立关节角，避免启动时抖动
+    for (int i = 0; i < kLegCount; ++i) {
+        const FootTarget t = computeStandingTarget(kLegs[i]);
+        JointAngles a;
+        if (!leg_ik_.Solve(t.x, t.z, a)) continue;
+
+        const int hj = mj_name2id(model, mjOBJ_JOINT, kLegs[i].hip_joint);
+        const int kj = mj_name2id(model, mjOBJ_JOINT, kLegs[i].knee_joint);
+        if (hj >= 0) data->qpos[model->jnt_qposadr[hj]] = a.hip;
+        if (kj >= 0) data->qpos[model->jnt_qposadr[kj]] = a.knee;
+
+        const int ha = state_.hip_actuator_ids[i];
+        const int ka = state_.knee_actuator_ids[i];
+        if (ha >= 0) data->ctrl[ha] = a.hip;
+        if (ka >= 0) data->ctrl[ka] = a.knee;
+    }
 
     mj_forward(model, data);
+}
+
+void GaitController::SetMotionDirection(int direction) {
+    const int clamped = (direction > 0) ? 1 : (direction < 0) ? -1 : 0;
+    if (clamped != 0 && state_.motion_direction == 0) {
+        // 从静止启动：置于支撑中段相位，承重腿足端恰好在 x_bias，零跳变
+        state_.gait_time = 0.5 * kDutyFactor * kCyclePeriod;
+    } else if (clamped == 0 && state_.motion_direction != 0) {
+        // 停止时重置步态时钟
+        state_.gait_time = 0.0;
+    }
+    state_.motion_direction = clamped;
 }
 
 void GaitController::Update(const mjModel* model, mjData* data) {
     if (!state_.initialized) {
         Initialize(model);
+        state_.last_sim_time = data->time;
     }
-    if (!state_.valid) {
-        return;
-    }
+    if (!state_.valid) return;
 
-    for (int leg_index = 0; leg_index < kLegCount; ++leg_index) {
-        const FootTarget target = computeTrotTarget(kLegs[leg_index], data->time);
-        JointAngles target_angles;
-        if (!leg_ik_.Solve(target.x, target.z, target_angles)) {
-            continue;
+    // 仅在运动时推进步态时钟
+    const mjtNum dt = std::max<mjtNum>(0.0, data->time - state_.last_sim_time);
+    state_.last_sim_time = data->time;
+    if (state_.motion_direction != 0) state_.gait_time += dt;
+
+    for (int i = 0; i < kLegCount; ++i) {
+        FootTarget target;
+        if (state_.motion_direction == 0) {
+            // 静止：保持默认站立足端位置
+            target = computeStandingTarget(kLegs[i]);
+        } else {
+            // 运动：步态轨迹 + 方向翻转
+            target = computeTrotTarget(kLegs[i], state_.gait_time);
+            const mjtNum offset = target.x - kLegs[i].x_bias;
+            target.x = kLegs[i].x_bias + state_.motion_direction * offset;
         }
 
-        const int hip_actuator_id = state_.hip_actuator_ids[leg_index];
-        const int knee_actuator_id = state_.knee_actuator_ids[leg_index];
+        JointAngles angles;
+        if (!leg_ik_.Solve(target.x, target.z, angles)) continue;
 
-        data->ctrl[hip_actuator_id] =actuatorLimitedCommand(model, hip_actuator_id, target_angles.hip);
-        data->ctrl[knee_actuator_id] =actuatorLimitedCommand(model, knee_actuator_id, target_angles.knee);
+        const int ha = state_.hip_actuator_ids[i];
+        const int ka = state_.knee_actuator_ids[i];
+        if (ha >= 0) data->ctrl[ha] = actuatorLimitedCommand(model, ha, angles.hip);
+        if (ka >= 0) data->ctrl[ka] = actuatorLimitedCommand(model, ka, angles.knee);
     }
 }
 

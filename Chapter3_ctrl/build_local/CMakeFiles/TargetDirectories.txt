@@ -1,4 +1,3 @@
 /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build_local/CMakeFiles/mj_ctrl.dir
-/home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build_local/CMakeFiles/mj_test.dir
 /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build_local/CMakeFiles/edit_cache.dir
 /home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/build_local/CMakeFiles/rebuild_cache.dir

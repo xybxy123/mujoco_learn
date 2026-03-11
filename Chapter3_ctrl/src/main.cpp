@@ -16,11 +16,18 @@ mjvOption opt;
 mjvScene scn;
 mjrContext con;
 
-bool button_left = false;
+bool button_left  = false;
 bool button_middle = false;
 bool button_right = false;
+bool key_w = false;
+bool key_s = false;
 double lastx = 0;
 double lasty = 0;
+
+void syncDirection() {
+    const int dir = (key_w ? 1 : 0) - (key_s ? 1 : 0);
+    g_controller.SetMotionDirection(dir);
+}
 
 void mycontroller(const mjModel* model, mjData* data) {
     g_controller.Update(model, data);
@@ -31,10 +38,22 @@ void keyboard(GLFWwindow* window, int key, int scancode, int act, int mods) {
     (void)scancode;
     (void)mods;
 
+    if (key == GLFW_KEY_W) {
+        key_w = (act != GLFW_RELEASE);
+        syncDirection();
+        return;
+    }
+    if (key == GLFW_KEY_S) {
+        key_s = (act != GLFW_RELEASE);
+        syncDirection();
+        return;
+    }
     if (act == GLFW_PRESS && key == GLFW_KEY_BACKSPACE) {
         mj_resetData(m, d);
         g_controller.Initialize(m);
         g_controller.SetInitialPose(m, d);
+        key_w = false; key_s = false;
+        syncDirection();
     }
 }
 
@@ -127,7 +146,7 @@ int main() {
     glfwSetMouseButtonCallback(window, mouse_button);
     glfwSetScrollCallback(window, scroll);
 
-    std::cout << "Running fixed trot gait. Press BACKSPACE to reset the pose." << std::endl;
+    std::cout << "W=前进  S=后退  松开=停止  Backspace=重置" << std::endl;
 
     while (!glfwWindowShouldClose(window)) {
         const mjtNum simstart = d->time;
