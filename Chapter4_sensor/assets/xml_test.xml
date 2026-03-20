@@ -39,6 +39,7 @@
         <freejoint/>
             <geom name="flat_cube_geom" type="box" size="0.14 0.075 0.02" material="flat_cube_mat" mass="0.2" condim="3"/>
 
+            <site name="imu_site" pos="0 0 0" quat="1 0 0 0" size="0.01 0.01 0.01" rgba="1 0 0 0.5"/>
 
             <!--狗头-->
             <body name="dog_head" pos="0.14 0 0.06">
@@ -103,7 +104,16 @@
         </body>
     </worldbody>
 
-
+    <sensor>
+        <!-- 机身姿态四元数 -->
+        <framequat name="imu_quat" objtype="site" objname="imu_site" />
+        <!-- 陀螺仪（角速度） -->
+        <gyro name="imu_gyro" site="imu_site" noise="0.001" cutoff="100" />
+        <!-- 加速度计（线性加速度，包含重力） -->
+        <accelerometer name="imu_accel" site="imu_site" noise="0.01" cutoff="100" />
+        <!-- 线速度 -->
+        <framelinvel name="imu_linvel" objtype="site" objname="imu_site" />
+    </sensor>
 
     <!-- 角度（位置）控制执行器：inheritrange now works -->
     <actuator>

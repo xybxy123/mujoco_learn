@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DmjUSEPLATFORMSIMD
 
-CXX_INCLUDES = -I/home/cc/genesis_ws/mujoco_learn/Chapter3_ctrl/src -isystem /opt/mujoco/include
+CXX_INCLUDES = -I/home/xybxy123/w_work/mujoco_learn/Chapter3_ctrl/src -isystem /opt/mujoco/include
 
 CXX_FLAGS = -std=gnu++17
 

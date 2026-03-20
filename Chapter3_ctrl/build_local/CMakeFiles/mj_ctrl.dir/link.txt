@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/mj_ctrl.dir/src/main.cpp.o CMakeFiles/mj_ctrl.dir/src/gait_controller.cpp.o CMakeFiles/mj_ctrl.dir/src/leg_ik.cpp.o -o mj_ctrl  -Wl,-rpath,/opt/mujoco/lib /opt/mujoco/lib/libmujoco.so.3.4.0 /usr/lib/x86_64-linux-gnu/libglfw.so.3.3 
